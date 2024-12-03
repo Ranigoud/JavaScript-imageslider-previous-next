@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+    <title>Images</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+
+    </style>
+</head>
+<body>
+    <h1>Image Slider</h1>
+    <img id="sliderimage" src="images/" alt="Image">
+    <button id="pbtn">Prious</button>
+    <button id="nbtn">Next</button>
+
+    <script>
+         const images=["images/oil1.jpg","images/oil2.jpg","images/oil3.jpg","images/salt.5jpg.jpg","images/atta.jpg","images/butter.jpg"];
+         
+         let i=0;//initial index value start 0
+
+         const slideimage=document.getElementById("sliderimage");
+         const pbtn=document.getElementById("pbtn");
+         const nbtn=document.getElementById("nbtn");
+
+
+         function updateImage(){
+            slideimage.src=images[i];  //initial index value 0 to start    
+         }
+         pbtn.addEventListener("click",()=>{     //its taken two parameters one event,next one function
+            i=(i-1+images.length)% images.length; //currentindex=0-1=>-1 array length=images.length=>-1+4=3%4
+            updateImage()
+         });
+         nbtn.addEventListener("click",()=>{
+            i=(i+1)% images.length;
+            updateImage()
+         });
+        
+
+
+    </script>
+</body>
+</html>
